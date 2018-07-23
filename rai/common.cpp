@@ -17,7 +17,7 @@ namespace
 char const * test_private_key_data = "34F0A37AAD20F4A260F0A5B3CB3D7FB50673212263E58A380BC10474BB039CE4";
 char const * test_public_key_data = "F51DC6662342670AFEAC7480EE1366AD9D421F96DE8CDC00E784ABBFD52E9388"; // xrb_1mfhnf6qw3kejz96aiqpwccmcy5x4ms9b3hz8bnijbf1hcxc93c3y67ig179
 char const * beta_public_key_data = "00683F9D5C2CB75A1560D1E4CB7836AA68F4520283A2D3B9060583168EA30861"; // xrb_1mfhnf6qw3kejz96aiqpwccmcy5x4ms9b3hz8bnijbf1hcxc93c3y67ig179
-char const * live_public_key_data = "BD4AA7142DEAE48903763B62E7117125FAFEC08A9C2861C02CEC3FA6C61B881C"; // xrb_3t6k35gi95xu6tergt6p69ck76ogmitsa8mnijtpxm9fkcm736xtoncuohr3
+char const * live_public_key_data = "63DAF583385D5DC78FBD4EA00479CD390A606E8029B4F86F261CCE85BFBD5E80"; // xrb_3t6k35gi95xu6tergt6p69ck76ogmitsa8mnijtpxm9fkcm736xtoncuohr3
 char const * test_genesis_data = R"%%%({
 	"type": "open",
 	"source": "F51DC6662342670AFEAC7480EE1366AD9D421F96DE8CDC00E784ABBFD52E9388",
@@ -37,12 +37,12 @@ char const * beta_genesis_data = R"%%%({
 })%%%";
 
 char const * live_genesis_data = R"%%%({
-   "type": "open",
-    "source": "BD4AA7142DEAE48903763B62E7117125FAFEC08A9C2861C02CEC3FA6C61B881C",
-    "representative": "cec_3hccnwc4utq6j63qegu4wwaq4bhtzu1ao93ae914su3znu53q41wh5ehdmp9",
-    "account": "cec_3hccnwc4utq6j63qegu4wwaq4bhtzu1ao93ae914su3znu53q41wh5ehdmp9",
-    "work": "150605c31aa08135",
-    "signature": "4E7635C16A32CD7C2BDC5C4A01177B4C465D28C8BA607A285845D5CDE37BC75FBB569499A7DA95A338247D666B4136E161820C17630F5653B67DFD26DA998602"
+    "type": "open",
+    "source": "63DAF583385D5DC78FBD4EA00479CD390A606E8029B4F86F261CCE85BFBD5E80",
+    "representative": "cec_1rytyp3miqcxry9utmo11jwwtgace3qa1cfnz3qke98gipzutqn1cfe4i8d3",
+    "account": "cec_1rytyp3miqcxry9utmo11jwwtgace3qa1cfnz3qke98gipzutqn1cfe4i8d3",
+    "work": "ce9c9701b4377149",
+    "signature": "E58A8BC75626BDB45E100FC5136AB18C60FD489A986B6AAA3EC76B1B889E8282386CD5E05A3E20A880F1FAF50777B159898448109CDCFBB4AA2F00BBD8770201"
 })%%%";
 
 class ledger_constants
@@ -59,7 +59,7 @@ public:
 	rai_live_genesis (live_genesis_data),
 	genesis_account (rai::rai_network == rai::rai_networks::rai_test_network ? rai_test_account : rai::rai_network == rai::rai_networks::rai_beta_network ? rai_beta_account : rai_live_account),
 	genesis_block (rai::rai_network == rai::rai_networks::rai_test_network ? rai_test_genesis : rai::rai_network == rai::rai_networks::rai_beta_network ? rai_beta_genesis : rai_live_genesis),
-    genesis_amount (std::numeric_limits<rai::uint128_t>::max ()),
+	genesis_amount (std::numeric_limits<rai::uint128_t>::max()),
 	burn_account (0)
 	{
 		CryptoPP::AutoSeededRandomPool random_pool;
