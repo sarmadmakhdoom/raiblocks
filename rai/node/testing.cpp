@@ -172,7 +172,8 @@ void rai::system::generate_receive (rai::node & node_a)
 	}
 	if (send_block != nullptr)
 	{
-		auto receive_error (wallet (0)->receive_sync (send_block, rai::genesis_account, std::numeric_limits<rai::uint128_t>::max ()));
+		// auto receive_error (wallet (0)->receive_sync (send_block, rai::genesis_account, std::numeric_limits<rai::uint128_t>::max ()));
+		auto receive_error (wallet (0)->receive_sync (send_block, rai::genesis_account, rai::uint128_t ("75000000000000000000000000000000000000")));
 		(void)receive_error;
 	}
 }

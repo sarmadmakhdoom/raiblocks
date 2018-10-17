@@ -59,7 +59,8 @@ public:
 	rai_live_genesis (live_genesis_data),
 	genesis_account (rai::rai_network == rai::rai_networks::rai_test_network ? rai_test_account : rai::rai_network == rai::rai_networks::rai_beta_network ? rai_beta_account : rai_live_account),
 	genesis_block (rai::rai_network == rai::rai_networks::rai_test_network ? rai_test_genesis : rai::rai_network == rai::rai_networks::rai_beta_network ? rai_beta_genesis : rai_live_genesis),
-	genesis_amount (std::numeric_limits<rai::uint128_t>::max()),
+	genesis_amount (rai::uint128_t ("75000000000000000000000000000000000000")),
+//	genesis_amount (std::numeric_limits<rai::uint128_t>::max()),
 	burn_account (0)
 	{
 		CryptoPP::AutoSeededRandomPool random_pool;
@@ -495,7 +496,7 @@ void rai::amount_visitor::compute (rai::block_hash const & block_hash)
 			{
 				if (block_hash == rai::genesis_account)
 				{
-					amount = 80000000; //std::numeric_limits<rai::uint128_t>::max ();
+					amount = rai::uint128_t ("75000000000000000000000000000000000000"); //std::numeric_limits<rai::uint128_t>::max ();
 					current_amount = 0;
 				}
 				else
@@ -780,7 +781,7 @@ void rai::genesis::initialize (MDB_txn * transaction_a, rai::block_store & store
 	auto hash_l (hash ());
 	assert (store_a.latest_begin (transaction_a) == store_a.latest_end ());
 	store_a.block_put (transaction_a, hash_l, *open);
-	rai::uint128_t const total_supply = std::numeric_limits<rai::uint128_t>::max ();
+	rai::uint128_t const total_supply = rai::uint128_t ("75000000000000000000000000000000000000"); //std::numeric_limits<rai::uint128_t>::max ();
 	store_a.account_put (transaction_a, genesis_account, { hash_l, open->hash (), open->hash (), total_supply, rai::seconds_since_epoch (), 1 });
 	store_a.representation_put (transaction_a, genesis_account, total_supply);
 	// store_a.account_put (transaction_a, genesis_account, { hash_l, open->hash (), open->hash (), std::numeric_limits<rai::uint128_t>::max (), rai::seconds_since_epoch (), 1 });
