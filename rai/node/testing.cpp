@@ -220,7 +220,8 @@ rai::uint128_t rai::system::get_random_amount (MDB_txn * transaction_a, rai::nod
 	std::string balance_text (balance.convert_to<std::string> ());
 	rai::uint128_union random_amount;
 	random_pool.GenerateBlock (random_amount.bytes.data (), sizeof (random_amount.bytes));
-	auto result (((rai::uint256_t{ random_amount.number () } * balance) / rai::uint256_t{ std::numeric_limits<rai::uint128_t>::max () }).convert_to<rai::uint128_t> ());
+//	auto result (((rai::uint256_t{ random_amount.number () } * balance) / rai::uint256_t{ std::numeric_limits<rai::uint128_t>::max () }).convert_to<rai::uint128_t> ());
+	auto result (((rai::uint256_t{ random_amount.number () } * balance) / rai::uint256_t{ rai::uint128_t ("75000000000000000000000000000000000000") }).convert_to<rai::uint128_t> ());
 	std::string text (result.convert_to<std::string> ());
 	return result;
 }

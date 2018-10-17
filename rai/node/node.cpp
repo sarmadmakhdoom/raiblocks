@@ -919,7 +919,7 @@ lmdb_max_dbs (128)
 		case rai::rai_networks::rai_live_network:
 			preconfigured_peers.push_back ("network.cellcoin.cc");
 			preconfigured_representatives.push_back (rai::account ("63DAF583385D5DC78FBD4EA00479CD390A606E8029B4F86F261CCE85BFBD5E80"));
-			// preconfigured_representatives.push_back (rai::account ("67556D31DDFC2A440BF6147501449B4CB9572278D034EE686A6BEE29851681DF"));
+			preconfigured_representatives.push_back (rai::account ("29F55D1C8E52AD2B283EE3EFDC2227752E7D3E5F195EA89D41C2A92ED73F8783"));
 			// preconfigured_representatives.push_back (rai::account ("5C2FBB148E006A8E8BA7A75DD86C9FE00C83F5FFDBFD76EAA09531071436B6AF"));
 			// preconfigured_representatives.push_back (rai::account ("AE7AC63990DAAAF2A69BF11C913B928844BF5012355456F2F164166464024B29"));
 			// preconfigured_representatives.push_back (rai::account ("BD6267D6ECD8038327D2BCC0850BDF8F56EC0414912207E81BCF90DFAC8A4AAA"));
